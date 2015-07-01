@@ -5657,13 +5657,13 @@ INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('DE', 'DEU', '276', 'Alemanha'
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AD', 'AND', '020', 'Andorra');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AO', 'AGO', '024', 'Angola');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AI', 'AIA', '660', 'Anguilla');
-INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AQ', 'ATA', '010', 'Antárctida');
+INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AQ', 'ATA', '010', 'Antártida');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AG', 'ATG', '028', 'Antigua e Barbuda');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AN', 'ANT', '530', 'Antilhas Holandesas');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('SA', 'SAU', '682', 'Arábia Saudita');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('DZ', 'DZA', '012', 'Argélia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AR', 'ARG', '032', 'Argentina');
-INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AM', 'ARM', '051', 'Arménia');
+INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AM', 'ARM', '051', 'Armênia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AW', 'ABW', '533', 'Aruba');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AU', 'AUS', '036', 'Austrália');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AT', 'AUT', '040', 'Áustria');
@@ -5718,13 +5718,13 @@ INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('DM', 'DMA', '212', 'Dominica'
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('DO', 'DOM', '214', 'República Dominicana');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('EG', 'EGY', '818', 'Egipto');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('SV', 'SLV', '222', 'El Salvador');
-INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AE', 'ARE', '784', 'Emiratos Árabes Unidos');
+INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('AE', 'ARE', '784', 'Emirados Árabes Unidos');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('EC', 'ECU', '218', 'Equador');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('ER', 'ERI', '232', 'Eritreia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('SK', 'SVK', '703', 'Eslováquia');
-INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('SI', 'SVN', '705', 'Eslovénia');
+INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('SI', 'SVN', '705', 'Eslovênia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('ES', 'ESP', '724', 'Espanha');
-INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('US', 'USA', '840', 'Estados Unidos da América');
+INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('US', 'USA', '840', 'Estados Unidos');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('EE', 'EST', '233', 'Estónia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('ET', 'ETH', '231', 'Etiópia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('FO', 'FRO', '234', 'Ilhas Faroe');
@@ -5780,7 +5780,7 @@ INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('LI', 'LIE', '438', 'Liechtens
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('LT', 'LTU', '440', 'Lituânia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('LU', 'LUX', '442', 'Luxemburgo');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('MO', 'MAC', '446', 'Macau');
-INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('MK', 'MKD', '807', 'República da Macedônia');
+INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('MK', 'MKD', '807', 'Macedônia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('MG', 'MDG', '450', 'Madagascar');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('MY', 'MYS', '458', 'Malásia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('MW', 'MWI', '454', 'Malawi');
@@ -5799,7 +5799,7 @@ INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('YT', 'MYT', '175', 'Mayotte')
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('UM', 'UMI', '581', 'Ilhas Menores Distantes dos Estados Unidos');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('MX', 'MEX', '484', 'México');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('MM', 'MMR', '104', 'Myanmar');
-INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('FM', 'FSM', '583', 'Estados Federados da Micronésia');
+INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('FM', 'FSM', '583', 'Micronésia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('MZ', 'MOZ', '508', 'Moçambique');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('MD', 'MDA', '498', 'Moldávia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('MC', 'MCO', '492', 'Mônaco');
@@ -5815,7 +5815,7 @@ INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('NG', 'NGA', '566', 'Nigéria'
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('NU', 'NIU', '570', 'Niue');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('NF', 'NFK', '574', 'Ilha Norfolk');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('NO', 'NOR', '578', 'Noruega');
-INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('NC', 'NCL', '540', 'Nova Caledónia');
+INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('NC', 'NCL', '540', 'Nova Caledônia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('NZ', 'NZL', '554', 'Nova Zelândia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('OM', 'OMN', '512', 'Oman');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('NL', 'NLD', '528', 'Holanda');
@@ -5834,7 +5834,7 @@ INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('PT', 'PRT', '620', 'Portugal'
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('QA', 'QAT', '634', 'Qatar');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('KE', 'KEN', '404', 'Quênia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('KG', 'KGZ', '417', 'Quirguistão');
-INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('GB', 'GBR', '826', 'Reino Unido da Grã-Bretanha e Irlanda do Norte');
+INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('GB', 'GBR', '826', 'Reino Unido');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('RE', 'REU', '638', 'Reunião');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('RO', 'ROU', '642', 'Romênia');
 INSERT INTO paises(iso,iso3,numcode,nome) VALUES ('RW', 'RWA', '646', 'Ruanda');
