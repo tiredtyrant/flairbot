@@ -28,7 +28,7 @@ def dbLookup(msg):
     
 
 def main():
-    r = praw.Reddit(user_agent='flairbotbr')
+    r = praw.Reddit(user_agent='flairbotbr',handler=praw.handlers.MultiprocessHandler('localhost',10101))
     r.login('botbr', 'apassword')
     if r.is_logged_in():
         print 'logged in'
