@@ -6,11 +6,12 @@ import time
 con = sqlite3.connect('estados_municipios.db')
 cursor = con.cursor()
 
+
 def dbLookup(msg):
     if len(msg.split(',')) != 2:
-        #procura na lista de paises
+        # procura na lista de paises
         query = 'SELECT id FROM paises WHERE nome == ?;'
-        cursor.execute(query,(msg,))
+        cursor.execute(query, (msg,))
         if cursor.fetchone():
             return True
         else:
@@ -18,17 +19,18 @@ def dbLookup(msg):
     else:
         cidade = msg.split(',')[0].strip()
         estado = msg.split(',')[1].strip()
-        #check cidade pertence ao estado
+        # check cidade pertence ao estado
         query = 'SELECT estados.id FROM municipios JOIN estados ON municipios.estados_id == estados.id WHERE municipios.nome == ? AND estados.uf == ?;'
-        cursor.execute(query,(cidade,estado))
+        cursor.execute(query, (cidade, estado))
         if not cursor.fetchone():
             return False
-            
+
     return True
-    
+
 
 def main():
-    r = praw.Reddit(user_agent='flairbotbr',handler=praw.handlers.MultiprocessHandler('localhost',10101))
+    r = praw.Reddit(user_agent='flairbotbr',
+                    handler=praw.handlers.MultiprocessHandler('localhost', 10101))
     r.login('botbr', 'apassword')
     if r.is_logged_in():
         print 'logged in'
@@ -44,24 +46,32 @@ def main():
                 except UnicodeEncodeError:
                     print 'AUTHOR: %s - unprintable chars' % (msg.author)
                 sub = r.get_subreddit('brasil')
-                if msg.subject == 'flair':
+                if msg.subject and msg.subject.lower() == 'flair':
                     if dbLookup(msg.body):
-                        estado = 'world' if len(msg.body.split(',')) < 2 else msg.body.split(',')[1].strip()
-                        sub.set_flair(msg.author,msg.body,estado)
-                        r.send_message(msg.author,'flair','Flair configurado.')
+                        estado = 'world' if len(
+                            msg.body.split(',')) < 2 else msg.body.split(',')[1].strip()
+                        sub.set_flair(msg.author, msg.body, estado)
+                        r.send_message(
+                            msg.author, 'flair', 'Flair configurado.')
                         print('flair ok')
                     else:
-                        r.send_message(msg.author,'flair','Configuração de flair falhou.')
+                        r.send_message(
+                            msg.author, 'flair', 'Configuração de flair falhou.')
                         print('flair fail')
-                if msg.subject == 'remover flair':
-                    sub.set_flair(msg.author,'','')
-                    r.send_message(msg.author,'flair','Flair removido.')
+                if msg.subject and msg.subject.lower() == 'remover flair':
+                    sub.set_flair(msg.author, '', '')
+                    r.send_message(msg.author, 'flair', 'Flair removido.')
                     print('remove flair ok')
-                
+
                 msg.mark_as_read()
         except:
             pass
 
 if __name__ == '__main__':
     main()
-    
+.mark_as_read()
+    except:
+        pass
+
+if __name__ == '__main__':
+    main()
