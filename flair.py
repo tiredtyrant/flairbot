@@ -2,10 +2,16 @@
 import praw
 import sqlite3
 import time
+import datetime
 
 con = sqlite3.connect('estados_municipios.db')
 cursor = con.cursor()
 
+USER = ''
+PASSWORD = ''
+CLIENT_ID = ''
+CLIENT_SECRET = ''
+USER_AGENT = ''
 
 def dbLookup(msg):
     if len(msg.split(',')) != 2:
@@ -27,51 +33,50 @@ def dbLookup(msg):
 
     return True
 
+def write_log(text):
+    print(text)
+    log = open('log_flairbot.txt', 'a')
+    log.write('{} {}\n'.format(str(datetime.datetime.now()),text))
+    log.close()
+
 
 def main():
-    r = praw.Reddit(user_agent='flairbotbr',
-                    handler=praw.handlers.MultiprocessHandler('localhost', 10101))
-    r.login('botbr', 'apassword')
-    if r.is_logged_in():
-        print 'logged in'
-    else:
-        print 'failed to log in'
-        return
+    r = praw.Reddit(client_id = CLIENT_ID,
+                    client_secret = CLIENT_SECRET,
+                    user_agent = USER_AGENT,
+                    username = USER,
+                    password = PASSWORD)
+
+    print(r.user.me()) #forca exception se login falhou
+    print('logged in')
+
     while True:
         time.sleep(0.5)
         try:
-            for msg in r.get_unread(limit=None):
+            for msg in r.inbox.unread():
                 try:
-                    print 'AUTHOR: %s - SUBJECT: %s - BODY: %s' % (msg.author, msg.subject, msg.body)
+                    write_log('AUTHOR: {} - SUBJECT: {} - BODY: {}'.format(msg.author, msg.subject, msg.body))
                 except UnicodeEncodeError:
-                    print 'AUTHOR: %s - unprintable chars' % (msg.author)
-                sub = r.get_subreddit('brasil')
+                    write_log('AUTHOR: {} - unprintable chars'.format(msg.author))
+                sub = r.subreddit('brasil')
                 if msg.subject and msg.subject.lower() == 'flair':
                     if dbLookup(msg.body):
                         estado = 'world' if len(
                             msg.body.split(',')) < 2 else msg.body.split(',')[1].strip()
-                        sub.set_flair(msg.author, msg.body, estado)
-                        r.send_message(
-                            msg.author, 'flair', 'Flair configurado.')
-                        print('flair ok')
+                        sub.flair.set(msg.author, msg.body, estado)
+                        msg.author.message('flair', 'Flair configurado.')
+                        write_log('flair ok')
                     else:
-                        r.send_message(
-                            msg.author, 'flair', 'Configuração de flair falhou.')
-                        print('flair fail')
+                        msg.author.message('flair', 'Configuração de flair falhou.')
+                        write_log('flair fail')
                 if msg.subject and msg.subject.lower() == 'remover flair':
-                    sub.set_flair(msg.author, '', '')
-                    r.send_message(msg.author, 'flair', 'Flair removido.')
-                    print('remove flair ok')
-
-                msg.mark_as_read()
-        except:
+                    sub.flair.delete(msg.author)
+                    msg.author.message('flair', 'Flair removido.')
+                    write_log('remove flair ok')
+                r.inbox.mark_read([msg])
+        except Exception as e:
+            print(e)
             pass
-
-if __name__ == '__main__':
-    main()
-.mark_as_read()
-    except:
-        pass
 
 if __name__ == '__main__':
     main()

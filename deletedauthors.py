@@ -1,52 +1,44 @@
-#/u/GoldenSights
-import praw # simple interface to the reddit API, also handles rate limiting of requests
+#based on script by /u/GoldenSights
+import praw
 import time
+import datetime
 
-'''USER CONFIGURATION'''
-
-USERNAME  = ""
-#This is the bot's Username. In order to send mail, he must have some amount of Karma.
-PASSWORD  = ""
-#This is the bot's Password. 
-USERAGENT = ""
-#This is a short description of what the bot does. For example "/u/GoldenSights' Newsletter bot"
-SUBREDDIT = "brasil"
-#This is the sub or list of subs to scan for new posts. For a single sub, use "sub1". For multiple subreddits, use "sub1+sub2+sub3+..."
-MAXPOSTS = 1000
-#This is how many posts you want to retrieve all at once. PRAW can download 100 at a time.
+USER = ''
+PASSWORD = ''
+CLIENT_ID = ''
+CLIENT_SECRET = ''
+USER_AGENT = ''
+SUBREDDIT = ''
 WAIT = 60
-#This is how many seconds you will wait between cycles. The bot is completely inactive during this time.
 
+def write_log(text):
+    print(text)
+    log = open('log_deleted_authors.txt', 'a')
+    log.write('{} {}\n'.format(str(datetime.datetime.now()),text))
+    log.close()
 
-'''All done!'''
-
-
-WAITS = str(WAIT)
-    
-USERNAME='botbr'
-PASSWORD='apassword'
-USERAGENT='sub_brasil_deleted_authors'
-
-print("Logging in")
-r = praw.Reddit(USERAGENT,handler=praw.handlers.MultiprocessHandler('localhost',10101))
-r.login(USERNAME, PASSWORD) 
+write_log("Logging in")
+r = praw.Reddit(client_id = CLIENT_ID,
+                client_secret = CLIENT_SECRET,
+                user_agent = USER_AGENT,
+                username = USER,
+                password = PASSWORD)
 
 def scanSub():
-    print('Searching '+ SUBREDDIT + '.')
-    subreddit = r.get_subreddit(SUBREDDIT)
-    posts = subreddit.get_new(limit=MAXPOSTS)
+    subreddit = r.subreddit(SUBREDDIT)
+    posts = subreddit.new()
     for post in posts:
         try:
             pauthor = post.author.name
         except AttributeError:
-            print(post.id, 'is being removed')
-            post.remove()
-            print('\tDone')
+            write_log('{} is being removed'.format(post.id))
+            post.delete()
+            write_log('Done')
 
+write_log('Searching '+ SUBREDDIT + '.')
 while True:
     try:
         scanSub()
     except Exception as e:
         print('An error has occured:', e)
-    print('Running again in ' + WAITS + ' seconds \n')
     time.sleep(WAIT)
